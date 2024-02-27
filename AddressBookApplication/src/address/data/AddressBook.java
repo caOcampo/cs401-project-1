@@ -11,6 +11,9 @@ import address.Menu;
 public class AddressBook {
     public ArrayList<AddressEntry> AddressEntryList;
 
+    /**
+     * Lists all items in each AddressEntryList
+     */
     public void list(){
         for (AddressEntry addressEntry : AddressEntryList) {
             System.out.println("First name: "+ addressEntry.getFirstName());
@@ -26,6 +29,9 @@ public class AddressBook {
         }
     }
 
+    /**
+     * Adds a new entry based on user prompts
+     */
     public void add(){
         Scanner menuScanner = new Scanner(System.in);
 
@@ -50,10 +56,17 @@ public class AddressBook {
         AddressEntryList.add(entry);
     }
 
+    /**
+     * Constructor -- Creates AddressBook object with empty AddressEntryList
+     */
     public AddressBook(){
         AddressEntryList = new ArrayList<AddressEntry>();
     }
 
+    /**
+     * Removes the entry with the lastname specified by user
+     * @param lastName
+     */
     public void remove(String lastName) {
         for (int i = 0; i < AddressEntryList.size(); i++) {
             if (Objects.equals(AddressEntryList.get(i).getLastName(), lastName)) {
@@ -62,6 +75,10 @@ public class AddressBook {
         }
     }
 
+    /**
+     * Reads data from a CSV file and populates the AddressEntryList
+     * @param filePath
+     */
     public void readFromFile(String filePath) {
         try (Scanner scanner = new Scanner(new File(filePath))) {
             while (scanner.hasNextLine()) {
@@ -92,15 +109,20 @@ public class AddressBook {
         }
     }
 
+    /**
+     * Finds addressEntry
+     * @param startOf_lastName
+     */
     public void find(String startOf_lastName){
         AddressBook Matches = new AddressBook();
         //Find the start of a student's last name that matches
         for (AddressEntry entry : AddressEntryList){
             if (entry.getLastName().toLowerCase().startsWith(startOf_lastName.toLowerCase())) {
-                Matches.AddressEntryList.add(entry);
+               // Matches.AddressEntryList.add(entry);
+                entry.toString();
             }
         }
-        Matches.list();
+
     }
 
 

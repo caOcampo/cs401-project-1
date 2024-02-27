@@ -1,5 +1,5 @@
 package address.data;
-import address.Menu;
+
 
 public class AddressEntry {
     String firstName;
@@ -12,6 +12,10 @@ public class AddressEntry {
     String email;
 
     //Functions
+
+    /**
+     * Constructor with no parameters -- creates a Jane Doe entry
+     */
     public AddressEntry(){ //Default constructor
         firstName = "Jane";
         lastName = "Doe";
@@ -23,7 +27,17 @@ public class AddressEntry {
         email = "jdoe@gmail.com";
     }
 
-    //Constructor with Parameters
+    /**
+     * Constructor with parameters
+     * @param firstName the entry's first name
+     * @param lastName the entry's last name
+     * @param street the entry's street
+     * @param state  the entry's state
+     * @param city the entry's city
+     * @param zip the entry's zip code
+     * @param phone the entry's phone number
+     * @param email the entry's email
+     */
     public AddressEntry(String firstName, String lastName, String street, String state, String city, Integer zip, String phone, String email){
         this.firstName = firstName;
         this.lastName = lastName;
@@ -35,7 +49,9 @@ public class AddressEntry {
         this.email = email;
     }
 
-    //To String
+    /**
+     * Prints the entry in strings
+     */
     public String toString(){
         System.out.println("First name: "+ getFirstName());
         System.out.println("Last name: "+ getLastName());
